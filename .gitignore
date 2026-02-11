@@ -47,10 +47,3 @@ android/gradlew.bat
 buck-out/
 \.buckd/
 *.keystore
-
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
-
-# Package lock from sub-packages
-package-lock.json

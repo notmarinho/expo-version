@@ -3,7 +3,7 @@
  *
  * Builds deep-link URLs to the App Store and Play Store for the current app.
  */
-import { Platform } from 'react-native';
+import { platformOS } from './get-platform-os';
 import { getPackageName, getRegionCode } from './version-info';
 
 export interface GetAppStoreUrlOption {
@@ -61,7 +61,7 @@ export function getPlayStoreUrl(option: GetPlayStoreUrlOption = {}): string {
  * On iOS, delegates to `getAppStoreUrl`. On Android, delegates to `getPlayStoreUrl`.
  */
 export function getStoreUrl(option: GetStoreUrlOption): string {
-  if (Platform.OS === 'ios') {
+  if (platformOS === 'ios') {
     return getAppStoreUrl(option);
   }
   return getPlayStoreUrl(option);

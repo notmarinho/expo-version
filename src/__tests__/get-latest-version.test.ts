@@ -11,8 +11,8 @@ jest.mock('expo-localization', () => ({
   ]),
 }));
 
-jest.mock('react-native', () => ({
-  Platform: { OS: 'ios' },
+jest.mock('../get-platform-os', () => ({
+  platformOS: 'ios',
 }));
 
 import { getLatestVersion } from '../get-latest-version';
