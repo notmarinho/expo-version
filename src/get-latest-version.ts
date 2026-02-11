@@ -1,7 +1,7 @@
 /**
  * Retrieves the latest version of the app from the configured store provider.
  */
-import { Platform } from 'react-native';
+import { platformOS } from './get-platform-os';
 import { appStore, playStore } from './providers';
 import { IProvider, ProviderGetVersionOption } from './providers/types';
 
@@ -21,7 +21,7 @@ export interface GetLatestVersionOption extends ProviderGetVersionOption {
  * Returns the default provider name based on the current platform.
  */
 function getDefaultProviderName(): 'appStore' | 'playStore' {
-  return Platform.OS === 'ios' ? 'appStore' : 'playStore';
+  return platformOS === 'ios' ? 'appStore' : 'playStore';
 }
 
 /**

@@ -40,7 +40,7 @@ async function getVersion(
 
   const url = buildLookupUrl(packageName, country);
   const response = await fetch(url, option.fetchOptions);
-  const json = await response.json();
+  const json = (await response.json()) as { resultCount: number; results: { version: string; trackId: string | number }[] };
 
   if (!json.resultCount || json.resultCount === 0) {
     throw new Error(

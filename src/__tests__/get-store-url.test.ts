@@ -11,9 +11,8 @@ jest.mock('expo-localization', () => ({
   ]),
 }));
 
-jest.mock('react-native', () => ({
-  Platform: { OS: 'ios' },
-}));
+const mockPlatform = { platformOS: 'ios' as string };
+jest.mock('../get-platform-os', () => mockPlatform);
 
 import {
   getAppStoreUrl,
@@ -95,10 +94,7 @@ describe('getStoreUrl', () => {
   });
 
   it('should return Play Store URL on Android', () => {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { Platform } = require('react-native');
-    const originalOS = Platform.OS;
-    Platform.OS = 'android';
+    mockPlatform.platformOS = 'android';
 
     const url = getStoreUrl({
       appID: '123',
@@ -108,6 +104,6 @@ describe('getStoreUrl', () => {
       'https://play.google.com/store/apps/details?id=com.test'
     );
 
-    Platform.OS = originalOS;
+    mockPlatform.platformOS = 'ios';
   });
 });
