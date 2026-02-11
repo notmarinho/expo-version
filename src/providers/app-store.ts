@@ -34,7 +34,7 @@ async function getVersion(
 
   if (!packageName) {
     throw new Error(
-      '[expo-version] Could not determine package name. Pass it via option.packageName.'
+      '[expo-version-check] Could not determine package name. Pass it via option.packageName.'
     );
   }
 
@@ -44,7 +44,7 @@ async function getVersion(
 
   if (!json.resultCount || json.resultCount === 0) {
     throw new Error(
-      `[expo-version] No App Store results found for bundle ID "${packageName}".`
+      `[expo-version-check] No App Store results found for bundle ID "${packageName}".`
     );
   }
 

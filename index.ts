@@ -1,5 +1,5 @@
 /**
- * expo-version
+ * expo-version-check
  *
  * Version checker for Expo applications.
  * Provides utilities to retrieve the current app version, check for updates

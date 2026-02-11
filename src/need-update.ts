@@ -70,7 +70,7 @@ export async function needUpdate(
   const currentVersion = option.currentVersion ?? getCurrentVersion();
   if (!currentVersion) {
     throw new Error(
-      '[expo-version] Could not determine current version. Pass it via option.currentVersion.'
+      '[expo-version-check] Could not determine current version. Pass it via option.currentVersion.'
     );
   }
 

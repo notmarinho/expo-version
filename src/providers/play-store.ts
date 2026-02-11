@@ -46,7 +46,7 @@ async function getVersion(
 
   if (!packageName) {
     throw new Error(
-      '[expo-version] Could not determine package name. Pass it via option.packageName.'
+      '[expo-version-check] Could not determine package name. Pass it via option.packageName.'
     );
   }
 
@@ -64,7 +64,7 @@ async function getVersion(
 
   if (!version) {
     throw new Error(
-      "[expo-version] Could not parse version from Play Store page. " +
+      "[expo-version-check] Could not parse version from Play Store page. " +
         "The page layout may have changed."
     );
   }

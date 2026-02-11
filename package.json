@@ -1,5 +1,5 @@
 {
-  "name": "expo-version",
+  "name": "expo-version-check",
   "version": "0.1.0",
   "description": "Version checker for Expo applications",
   "main": "dist/index.js",

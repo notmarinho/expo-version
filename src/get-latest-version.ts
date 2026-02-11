@@ -36,7 +36,7 @@ function resolveProvider(
   if (typeof resolved === 'string') {
     const builtIn = builtInProviders[resolved];
     if (!builtIn) {
-      throw new Error(`[expo-version] Invalid provider name: "${resolved}".`);
+      throw new Error(`[expo-version-check] Invalid provider name: "${resolved}".`);
     }
     return builtIn;
   }
@@ -51,7 +51,7 @@ function resolveProvider(
     return resolved;
   }
 
-  throw new Error('[expo-version] Invalid provider. Pass a name, IProvider, or function.');
+  throw new Error('[expo-version-check] Invalid provider. Pass a name, IProvider, or function.');
 }
 
 /**

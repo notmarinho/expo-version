@@ -1,4 +1,4 @@
-# expo-version
+# expo-version-check
 
 Version checker for Expo applications. Retrieves app version info using `expo-application`, fetches the latest version from the App Store or Play Store, and compares versions to determine if an update is needed.
 
@@ -6,7 +6,7 @@ Version checker for Expo applications. Retrieves app version info using `expo-ap
 
 ```bash
 npx expo install expo-application expo-localization
-npm install expo-version
+npm install expo-version-check
 ```
 
 ### Peer Dependencies
@@ -22,7 +22,7 @@ npm install expo-version
 ### Version Info
 
 ```ts
-import { getCurrentVersion, getBuildNumber, getPackageName, getRegionCode } from 'expo-version';
+import { getCurrentVersion, getBuildNumber, getPackageName, getRegionCode } from 'expo-version-check';
 
 getCurrentVersion(); // "2.5.0" (Application.nativeApplicationVersion)
 getBuildNumber();    // "42"    (Application.nativeBuildVersion)
@@ -35,7 +35,7 @@ getRegionCode();     // "US"   (from expo-localization)
 Fetch the latest version from the App Store (iOS) or Play Store (Android):
 
 ```ts
-import { getLatestVersion } from 'expo-version';
+import { getLatestVersion } from 'expo-version-check';
 
 // Auto-selects provider based on platform
 const version = await getLatestVersion();
@@ -55,7 +55,7 @@ const version = await getLatestVersion({
 ### Check for Updates
 
 ```ts
-import { needUpdate } from 'expo-version';
+import { needUpdate } from 'expo-version-check';
 
 const result = await needUpdate();
 // result = {
@@ -78,7 +78,7 @@ const result = await needUpdate({
 ### Store URLs
 
 ```ts
-import { getStoreUrl, getAppStoreUrl, getPlayStoreUrl } from 'expo-version';
+import { getStoreUrl, getAppStoreUrl, getPlayStoreUrl } from 'expo-version-check';
 
 // Platform-aware
 const url = getStoreUrl({ appID: '123456789', packageName: 'com.myapp' });
@@ -96,7 +96,7 @@ getPlayStoreUrl({ packageName: 'com.myapp' });
 You can create a custom provider implementing the `IProvider` interface:
 
 ```ts
-import { getLatestVersion, type IProvider } from 'expo-version';
+import { getLatestVersion, type IProvider } from 'expo-version-check';
 
 const myProvider: IProvider = {
   async getVersion(option) {

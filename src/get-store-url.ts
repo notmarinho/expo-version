@@ -28,7 +28,7 @@ export type GetStoreUrlOption = GetAppStoreUrlOption & GetPlayStoreUrlOption;
  */
 export function getAppStoreUrl(option: GetAppStoreUrlOption): string {
   if (!option.appID) {
-    throw new Error('[expo-version] appID is required for getAppStoreUrl.');
+    throw new Error('[expo-version-check] appID is required for getAppStoreUrl.');
   }
 
   const country = option.country ?? getRegionCode() ?? undefined;
@@ -48,7 +48,7 @@ export function getPlayStoreUrl(option: GetPlayStoreUrlOption = {}): string {
 
   if (!packageName) {
     throw new Error(
-      '[expo-version] Could not determine package name for getPlayStoreUrl.'
+      '[expo-version-check] Could not determine package name for getPlayStoreUrl.'
     );
   }
 
