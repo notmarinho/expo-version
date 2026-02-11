@@ -1,30 +1,22 @@
-name: ESLint check
+name: Lint
 on:
   push:
+    branches:
+      - master
+      - develop
+  pull_request:
+permissions:
+  contents: read
 jobs:
   lint:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [18.x]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup node ${{ matrix.node-version }} in ${{ runner.OS }}
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Cache Node.js modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-${{ matrix.node-version }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-${{ matrix.node-version }}-node-
-            ${{ runner.OS }}-${{ matrix.node-version }}-
-            ${{ runner.OS }}-
-      - name: Install node modules
-        run: |
-          npm install
-          npm run lerna-bootstrap
-      - run: npm run lint
+          node-version: 20.x
+      - name: Install dependencies
+        run: npm install
+      - name: Lint
+        run: npm run lint
